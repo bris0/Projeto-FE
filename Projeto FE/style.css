@@ -1,0 +1,340 @@
+/*
+==================================================
+CSS — ATIVIDADE PRÁTICA
+POSICIONAMENTO E RESPONSIVIDADE
+==================================================
+
+Objetivo:
+Entender como o CSS controla tamanho,
+espaçamento, aparência e distribuição
+dos elementos HTML.
+*/
+
+
+/*
+1. CONFIGURAÇÃO GERAL
+
+O seletor * seleciona todos os elementos.
+*/
+
+* {
+    /* Inclui padding e border no tamanho definido */
+    box-sizing: border-box;
+}
+
+
+/*
+2. BODY
+*/
+
+body {
+    /* Define a família da fonte */
+    font-family: Arial, sans-serif;
+
+    /* Define a cor de fundo */
+    background-color: #eeeeee;
+
+    /* Remove a margem padrão do navegador */
+    margin: 0;
+
+    /* Define a cor padrão dos textos */
+    color: #222222;
+}
+
+
+/*
+3. CABEÇALHO
+*/
+
+header {
+    /* Cor de fundo */
+    background-color: #172554;
+
+    /* Cor dos textos */
+    color: white;
+
+    /* Espaçamento interno */
+    padding: 30px;
+
+    /* Centraliza o texto */
+    text-align: center;
+}
+
+
+/*
+4. CONTEÚDO PRINCIPAL
+*/
+
+main {
+    /* O conteúdo ocupa 90% da largura */
+    width: 90%;
+
+    /* Centraliza horizontalmente */
+    margin: 30px auto;
+}
+
+
+/*
+5. RANKING — CSS GRID
+
+.ranking é o elemento PAI.
+.card são os elementos FILHOS.
+*/
+
+.ranking {
+    /* Ativa o CSS Grid */
+    display: grid;
+
+    /*
+    Cria três colunas iguais.
+
+    DESAFIO:
+    Experimente:
+    repeat(2, 1fr)
+    e depois:
+    repeat(4, 1fr)
+    */
+    grid-template-columns: repeat(3, 1fr);
+
+    /*
+    Cria espaço ENTRE os cards.
+
+    DESAFIO:
+    Experimente alterar para 40px.
+    */
+    gap: 20px;
+}
+
+
+/*
+6. TABLET
+
+Quando a tela tiver até 900px,
+o ranking passará para duas colunas.
+*/
+
+@media (max-width: 900px) {
+
+    .ranking {
+
+        /* Tablet: duas colunas */
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+
+/*
+7. CELULAR
+
+Quando a tela tiver até 600px,
+o ranking passará para uma coluna.
+*/
+
+@media (max-width: 600px) {
+
+    .ranking {
+
+        /* Celular: uma coluna */
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/*
+8. CARD
+*/
+
+.card {
+    /* Fundo branco */
+    background-color: white;
+
+    /* Arredonda os cantos */
+    border-radius: 12px;
+
+    /*
+    Espaçamento interno.
+
+    DESAFIO:
+    Experimente 40px.
+    */
+    padding: 20px;
+
+    /* Cria uma sombra */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/*
+9. ÁREA DA IMAGEM
+*/
+
+.imagem {
+    /* Altura da área */
+    height: 250px;
+
+    /* Cor de fundo */
+    background-color: #bfdbfe;
+
+    /* Ativa Flexbox */
+    display: flex;
+
+    /* Centraliza horizontalmente */
+    justify-content: center;
+
+    /* Centraliza verticalmente */
+    align-items: center;
+
+    /* Texto em negrito */
+    font-weight: bold;
+
+    /* Cantos arredondados */
+    border-radius: 8px;
+}
+
+
+/*
+10. CONTEÚDO DO CARD
+*/
+
+.conteudo {
+    /* Espaço acima do conteúdo */
+    padding-top: 15px;
+}
+
+
+/*
+11. POSIÇÃO
+*/
+
+.posicao {
+    /* Cor */
+    color: #2563eb;
+
+    /* Negrito */
+    font-weight: bold;
+
+    /* Tamanho */
+    font-size: 14px;
+}
+
+
+/*
+12. TÍTULO
+*/
+
+.card h2 {
+    /* Espaço acima */
+    margin-top: 8px;
+
+    /* Espaço abaixo */
+    margin-bottom: 8px;
+}
+
+
+/*
+13. LINK COMO BOTÃO
+*/
+
+.card a {
+    /* Remove o sublinhado */
+    text-decoration: none;
+
+    /* Cor do texto */
+    color: white;
+
+    /* Cor do botão */
+    background-color: #2563eb;
+
+    /*
+    Espaçamento:
+    8px vertical
+    14px horizontal
+
+    DESAFIO:
+    Experimente outros valores.
+    */
+    padding: 8px 14px;
+
+    /* Cantos arredondados */
+    border-radius: 6px;
+
+    /* Permite trabalhar melhor o espaçamento do link */
+    display: inline-block;
+}
+
+
+/*
+14. HOVER
+
+Aplica o estilo quando o mouse passa
+sobre o link.
+*/
+
+.card a:hover {
+    /* DESAFIO: altere esta cor */
+    background-color: #1e40af;
+}
+
+
+/*
+15. RODAPÉ
+*/
+
+footer {
+    /* Cor de fundo */
+    background-color: #172554;
+
+    /* Cor do texto */
+    color: white;
+
+    /* Espaçamento interno */
+    padding: 20px;
+
+    /* Centraliza o texto */
+    text-align: center;
+
+    /* Espaço acima do rodapé */
+    margin-top: 40px;
+}
+
+
+/*
+==================================================
+DESAFIOS
+==================================================
+
+1. Altere 3 colunas para 2.
+
+2. Altere 3 colunas para 4.
+
+3. Altere gap: 20px para 40px.
+
+4. Altere padding: 20px para 40px.
+
+5. Mude a cor do cabeçalho.
+
+6. Mude a cor dos botões.
+
+7. Altere a altura da área da imagem.
+
+8. Diminua a janela do navegador e observe
+   as Media Queries funcionando.
+
+9. Explique:
+
+   a) O que é display: grid?
+
+   b) Para que serve 1fr?
+
+   c) Para que serve gap?
+
+   d) O que significa max-width?
+
+   e) Qual a diferença entre margin e padding?
+
+   f) Qual a diferença entre Grid e Flexbox?
+==================================================
