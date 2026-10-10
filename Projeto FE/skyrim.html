@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Define a codificação dos caracteres -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Nome exibido na aba do navegador -->
+    <title>The Elder Scrolls V: Skyrim</title>
+
+    <!-- Importa o arquivo CSS externo (mesmo do index) -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Estilos extras SOMENTE desta página (pode mover para o style.css) -->
+    <style>
+        /* Card de detalhes: imagem grande + conteúdo lado a lado */
+        .detalhes {
+            max-width: 1800px;
+            margin: 20px auto;
+            padding: 0 32px;
+        }
+
+        .detalhes .card {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 32px;
+            padding: 24px;
+        }
+
+        .detalhes .imagem {
+            margin: 0 !important;
+            padding: 0 !important;
+            transform: none !important;
+            position: static !important;
+            align-self: center;
+        }
+
+        .detalhes .imagem img {
+            margin: 0 !important;
+            transform: none !important;
+            position: static !important;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .detalhes .conteudo {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Tags de categoria */
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: #f3dede;
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        /* Ficha técnica */
+        .ficha { list-style: none; padding: 0; margin: 4px 0; }
+        .ficha li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        .ficha span { opacity: 0.7; }
+
+        /* Seção "Sobre" */
+        .sobre {
+            max-width: 1800px;
+            margin: 0 auto 20px;
+            padding: 0 32px;
+        }
+        .sobre h2, .outros h2 {
+            color: #fff;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e50914;
+        }
+        .sobre p { line-height: 1.6; color: #e0c9c9; font-size: 0.9rem; }
+        .sobre h2, .outros h2 { font-size: 1.1rem; }
+
+        /* Título da seção dos outros jogos */
+        .outros {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ===== BOTÃO VOLTAR AO RANKING ===== */
+        a.voltar {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            margin-bottom: 16px;
+            color: #fff;
+            background: linear-gradient(135deg, #ff3b3f, #b30000);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(255, 40, 40, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        a.voltar .seta {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        a.voltar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 40, 40, 0.6);
+            filter: brightness(1.15);
+        }
+
+        a.voltar:hover .seta {
+            transform: translateX(-5px);
+        }
+
+        a.voltar:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(255, 40, 40, 0.4);
+        }
+
+        /* Cards pequenos dos outros jogos */
+        .ranking.mini {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+            max-width: 1800px;
+            margin: 0 auto 24px;
+            padding: 0 32px;
+        }
+        .ranking.mini .card {
+            width: auto;
+            max-width: none;
+            margin: 0;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+        .ranking.mini .imagem img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+        }
+        .ranking.mini h2 { font-size: 1.1rem; margin: 4px 0; }
+        .ranking.mini p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 4px 0 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .ranking.mini .conteudo { flex-grow: 1; }
+
+        @media (max-width: 800px) {
+            .detalhes .card { grid-template-columns: 1fr; }
+            .ranking.mini { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Cabeçalho da página -->
+    <header>
+        <h1>THE ELDER SCROLLS V: SKYRIM</h1>
+        <p>De acordo com a MetaCritic</p>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main>
+
+        <!-- Detalhes do jogo -->
+        <section class="detalhes">
+
+            <a href="index.html" class="voltar"><span class="seta">←</span> Voltar ao ranking</a>
+
+            <article class="card">
+                <div class="imagem">
+                    <img src="img/skyrim.jpg" alt="The Elder Scrolls V: Skyrim">
+                </div>
+
+                <div class="conteudo">
+                    <span class="posicao">#10</span>
+
+                    <div class="tags">
+                        <span class="tag">RPG</span>
+                        <span class="tag">Ação</span>
+                        <span class="tag">Mundo aberto</span>
+                    </div>
+
+                    <h2>The Elder Scrolls V: Skyrim</h2>
+
+                    <p>
+                        Como o Dovahkiin, o jogador explora a gélida província de Skyrim
+                        e enfrenta dragões ancestrais que ameaçam destruir o mundo.
+                    </p>
+
+                    <ul class="ficha">
+                        <li><span>Nota MetaCritic</span> 94</li>
+                        <li><span>Lançamento</span> 2011</li>
+                        <li><span>Plataforma</span> PC / PS3 / Xbox 360</li>
+                        <li><span>Desenvolvedora</span> Bethesda Game Studios</li>
+                    </ul>
+
+                </div>
+            </article>
+        </section>
+
+        <!-- Sobre o jogo -->
+        <section class="sobre">
+            <h2>Sobre este jogo</h2>
+            <p>
+                The Elder Scrolls V: Skyrim é um RPG de ação em mundo aberto ambientado
+                na província nevada de Skyrim. O jogador assume o papel do Dovahkiin, o
+                Sangue de Dragão, único capaz de absorver o poder dos dragões ao derrotá-los,
+                e deve impedir o retorno de Alduin, o Devorador de Mundos. Com liberdade
+                total para explorar, entrar em guildas, criar equipamentos e escolher o
+                próprio estilo de jogo, cada aventura é diferente.
+            </p>
+        </section>
+
+        <!-- Outros jogos -->
+        <div class="outros">
+            <h2>Outros jogos do ranking</h2>
+        </div>
+
+        <!-- Mesmo padrão de cards do index -->
+        <section class="ranking mini">
+
+            <!-- Card 1 -->
+            <article class="card">
+                <div class="imagem">
+                    <img src="img/supermario2.jpg" alt="Super Mario Galaxy 2">
+                </div>
+                <div class="conteudo">
+                    <span class="posicao">#1</span>
+                    <h2>Super Mario Galaxy 2</h2>
+                    <p>Mario viaja por galáxias repletas de planetas para resgatar a Princesa Peach das mãos de Bowser.</p>
+                    <a href="super_mario_galaxy2.html">Ver detalhes</a>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="card">
+                <div class="imagem">
+                    <img src="img/gtav.jpg" alt="GTA V">
+                </div>
+                <div class="conteudo">
+                    <span class="posicao">#2</span>
+                    <h2>GTA V</h2>
+                    <p>Um jogo de ação em mundo aberto ambientado em Los Santos, que alterna entre três protagonistas envolvidos em assaltos e crimes.</p>
+                    <a href="gtav.html">Ver detalhes</a>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="card">
+                <div class="imagem">
+                    <img src="img/eldenring.jpg" alt="Elden Ring">
+                </div>
+                <div class="conteudo">
+                    <span class="posicao">#9</span>
+                    <h2>Elden Ring</h2>
+                    <p>Um RPG de ação em mundo aberto nas Terras Intermédias, onde o jogador enfrenta semideuses para se tornar o Lorde Prístino.</p>
+                    <a href="elden_ring.html">Ver detalhes</a>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+</body>
+</html>
