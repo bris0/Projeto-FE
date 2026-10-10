@@ -95,9 +95,42 @@
             padding: 0 32px;
         }
 
-        .voltar {
+        /* ===== BOTÃO VOLTAR AO RANKING ===== */
+        a.voltar {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            margin-bottom: 16px;
+            color: #fff;
+            background: linear-gradient(135deg, #ff3b3f, #b30000);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(255, 40, 40, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        a.voltar .seta {
             display: inline-block;
-            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        a.voltar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 40, 40, 0.6);
+            filter: brightness(1.15);
+        }
+
+        a.voltar:hover .seta {
+            transform: translateX(-5px);
+        }
+
+        a.voltar:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(255, 40, 40, 0.4);
         }
 
         /* Cards pequenos dos outros jogos */
@@ -141,6 +174,7 @@
             .detalhes .card { grid-template-columns: 1fr; }
             .ranking.mini { grid-template-columns: 1fr; }
         }
+
     </style>
 </head>
 
@@ -158,8 +192,7 @@
         <!-- Detalhes do jogo -->
         <section class="detalhes">
 
-            <!-- Botão de voltar no canto, acima do card -->
-            <a href="index.html" class="voltar">&larr; Voltar ao ranking</a>
+            <a href="index.html" class="voltar"><span class="seta">←</span> Voltar ao ranking</a>
 
             <article class="card">
                 <div class="imagem">
@@ -183,7 +216,7 @@
                     </p>
 
                     <ul class="ficha">
-                        <li><span>Nota MetaCritic</span> 97</li>
+                        <li><span>Nota MetaCritic</span> 98</li>
                         <li><span>Lançamento</span> 2010</li>
                         <li><span>Plataforma</span> Wii</li>
                         <li><span>Desenvolvedora</span> Nintendo EAD</li>
